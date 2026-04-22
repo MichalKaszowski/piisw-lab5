@@ -4,6 +4,8 @@ import {bookListResolver} from "./books/resolvers/book-list.resolver";
 import { ɵisBoundToModule } from '@angular/core';
 import { BookDetailsComponent } from './books/components/book-details/book-details.component';
 import { bookResolver } from './books/resolvers/book.resolver';
+import { BookEditComponent } from './books/components/book-edit/book-edit.component';
+import { reviewsResolver } from './books/resolvers/reviews.resolver';
 
 export const routes: Routes = [
   {
@@ -22,6 +24,14 @@ export const routes: Routes = [
     path: 'books/:bookId/reviews',
     component: BookDetailsComponent,
     resolve:{
+      book: bookResolver,
+      reviews: reviewsResolver
+    }
+  },
+  {
+    path: 'books/:bookId/edit',
+    component: BookEditComponent,
+    resolve: {
       book: bookResolver
     }
   }

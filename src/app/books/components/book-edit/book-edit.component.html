@@ -1,0 +1,106 @@
+
+
+<article class="m-3">
+
+  <h2>Edit book {{ book.title }}</h2>
+  <section class="d-flex flex-column gap-2">
+    <h5>Title</h5>
+<form [formGroup]="bookForm">
+  
+  <div class="mb-3">
+    <label for="titleInput" class="form-label">Title</label>
+    <input 
+      type="text" 
+      id="titleInput" 
+      class="form-control" 
+      formControlName="title"
+      [class.is-invalid]="title?.invalid && (title?.dirty || title?.touched)"
+      required />
+
+  @if (title?.invalid && (title?.dirty || title?.touched)) {
+    <div class="alert alert-danger mt-2">
+      @if (title?.hasError('required')) {
+        <div>Title is required.</div>
+      }
+      @if (title?.hasError('maxlength')) {
+        <div>Title cannot be longer than 50 characters.</div>
+      }
+    </div>
+  } 
+  </div>
+
+  <div class="mb-3">
+    <label for="authorInput" class="form-label">Author</label>
+    <input 
+      type="text" 
+      id="authorInput" 
+      class="form-control" 
+      formControlName="author"
+      [class.is-invalid]="author?.invalid && (author?.dirty || author?.touched)"
+      required />
+    
+        @if (author?.invalid && (author?.dirty || author?.touched)) {
+    <div class="alert alert-danger mt-2">
+      @if (author?.hasError('required')) {
+        <div>Author is required.</div>
+      }
+      @if (author?.hasError('maxlength')) {
+        <div>Author name cannot be longer than 50 characters.</div>
+      }
+    </div>
+  } 
+  </div>
+
+  <div class="mb-3">
+    <label for="yearInput" class="form-label">Year of publication</label>
+    <input 
+      type="number" 
+      id="yearInput" 
+      class="form-control" 
+      formControlName="year"
+      [class.is-invalid]="year?.invalid && (year?.dirty || year?.touched)"
+      required />
+    
+    @if (year?.invalid && (year?.dirty || year?.touched)) {
+    <div class="alert alert-danger mt-2">
+       @if (year?.hasError('required')) {
+        <div>Date is required.</div>
+      }
+      @if (year?.hasError('min')) {
+        <div>Date cannot be earlier than 1000</div>
+      }
+      @if (year?.hasError('max')) {
+        <div>Date cannot be later than 2023</div>
+      }
+    </div>
+}   
+  </div>
+
+  <div class="mb-3">
+    <label for="descriptionInput" class="form-label">Description</label>
+    <textarea 
+      id="descriptionInput" 
+      class="form-control" 
+      rows="5" 
+      formControlName="description"
+      [class.is-invalid]="description?.invalid && (description?.dirty || description?.touched)"
+      > </textarea>
+
+    @if (description?.invalid && (description?.dirty || description?.touched)) {
+    <div class="alert alert-danger mt-2">
+      @if (description?.hasError('maxlength')) {
+        <div> Description cannot be longer than 1000 characters.</div>
+      }
+    </div>
+}
+  </div>
+
+  <div class="mt-4">
+    <button type="submit" class="btn btn-primary me-2" [disabled]="bookForm.invalid || !bookForm.dirty" [routerLink]="['/']" (click)="saveBook()">Save</button>
+    <button type="button" class="btn btn-secondary" [routerLink]="['/']" >Cancel</button>
+  </div>
+
+</form>
+
+  </section>
+</article>

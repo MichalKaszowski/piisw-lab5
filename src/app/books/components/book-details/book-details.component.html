@@ -15,4 +15,11 @@
       </div>
 
   </section>
+  <section>
+    @for (review of reviews; track review.id) {
+      <bs-review [review]="review"></bs-review>
+} @empty {
+<p>There are no reviews.</p>
+}
+  </section>
 </article>

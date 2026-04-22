@@ -19,4 +19,8 @@ export class BooksService {
   findBookById(id: string): Observable<Book> {
       return this.http.get<Book>(`${booksApiPrefix}/${id}`);
   }
+
+  saveBook(id: number, book: Partial<Book>): Observable<Book> {
+    return this.http.put<Book>(`${booksApiPrefix}/${id}`, book);
+  }
 }
