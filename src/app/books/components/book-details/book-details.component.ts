@@ -13,6 +13,7 @@ export class BookDetailsComponent {
 
   readonly book: Book;
     constructor(private readonly activatedRoute: ActivatedRoute) {
+    console.log(this.activatedRoute.snapshot.data['books/:bookId/reviews'])
     this.book = this.activatedRoute.snapshot.data['books/:bookId/reviews'];
   }
 }
