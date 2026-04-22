@@ -1,0 +1,18 @@
+<article class="m-3">
+    <a [routerLink]="['/']" class="card-link">Back to main menu</a>
+
+  <h2>{{ book.title }} details</h2>
+  <section class="d-flex flex-column gap-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Title: {{ book.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Author: {{ book.author }}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">Release year: {{ book.year }}</h6>
+          <p class="card-text">
+            {{ book.description }}
+          </p>
+        </div>
+      </div>
+
+  </section>
+</article>
