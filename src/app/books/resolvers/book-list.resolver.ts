@@ -9,3 +9,4 @@ export const bookListResolver: ResolveFn<Book[]> = (
 ) => {
   return inject(BooksService).getAllBooks();
 };
+  

@@ -1,7 +1,7 @@
 {
   "books": [
     {
-      "title": "Solaris1234",
+      "title": "Solaris123",
       "author": "Stanisław Lem",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu enim augue. Vestibulum sed hendrerit nisl. Sed ullamcorper tempor neque. ",
       "year": 1961,
@@ -50,6 +50,21 @@
       "title": "Don't like it",
       "description": "Anything is better than this.",
       "rate": 1
+    },
+    {
+      "author": "Michał",
+      "title": "Dobra",
+      "content": "Podobała mi się. ",
+      "forBook": 1,
+      "id": 4
+    },
+    {
+      "author": "Michał",
+      "title": "fajna książka",
+      "description": "podobała się",
+      "rate": 5,
+      "forBook": 1,
+      "id": 5
     }
   ]
 }

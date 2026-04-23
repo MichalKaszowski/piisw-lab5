@@ -18,16 +18,20 @@ export class AddReviewComponent {
   reviewForm = new FormGroup({
     author: new FormControl('', [Validators.required]),
     title: new FormControl('', [Validators.required]),
-    content: new FormControl('', [Validators.required])
+    description: new FormControl('', [Validators.required]),
+    rate: new FormControl(5, [Validators.required,
+      Validators.min(1),
+      Validators.max(5)
+    ])
   });
 
   get author() { return this.reviewForm.get('author')!; }
   get title() { return this.reviewForm.get('title')!; }
-  get content() { return this.reviewForm.get('content')!; }
+  get description() { return this.reviewForm.get('description')!; }
+  get rate() { return this.reviewForm.get('rate')!; }
+
 
   onSubmit(){
-
-    if (this.reviewForm.valid){
     const addedReview: Partial<Review> ={
       ...this.reviewForm.value,
       forBook: this.bookId()
@@ -35,13 +39,9 @@ export class AddReviewComponent {
 
     this.reviewService.saveReview(addedReview).subscribe({
         next: (savedReview) => {
-          this.reviewAdded.emit(savedReview); // Powiadomienie rodzica
-          this.reviewForm.reset(); // Czyszczenie formularza
+          this.reviewAdded.emit(savedReview); 
+          this.reviewForm.reset(); 
         }
       });
-
-  }
-
-
   }
 }

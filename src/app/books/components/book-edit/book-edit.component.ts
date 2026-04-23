@@ -16,8 +16,6 @@ export class BookEditComponent {
   readonly book: Book;
 
   bookForm: FormGroup;
-  
-
     constructor(private readonly activatedRoute: ActivatedRoute) {
     this.book = this.activatedRoute.snapshot.data['book'];
     this.bookForm = new FormGroup({
@@ -44,8 +42,6 @@ export class BookEditComponent {
   get author() { return this.bookForm.get('author'); }
   get year() { return this.bookForm.get('year'); }
   get description() { return this.bookForm.get('description'); }
-
-
 
   saveBook(){
     this.bookService.saveBook(this.book.id, this.bookForm.value).subscribe()
