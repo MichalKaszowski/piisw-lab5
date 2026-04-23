@@ -22,4 +22,10 @@
 <p>There are no reviews.</p>
 }
   </section>
+
+  <section>
+    <bs-add-review
+    [bookId]="book.id"
+    (reviewAdded)="onReviewAdded($event)"></bs-add-review>
+  </section>
 </article>

@@ -21,4 +21,8 @@ export class ReviewsService {
         }
       });
     }
+
+    saveReview(review: Partial<Review>): Observable<Review> {
+        return this.http.post<Review>(`${reviewsApiPrefix}`, review);
+      }
 }

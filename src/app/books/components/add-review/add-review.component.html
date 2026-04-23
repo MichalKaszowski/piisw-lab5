@@ -1,0 +1,39 @@
+<div class="card p-3 mt-4 bg-light">
+  <h5>Add new review</h5>
+  <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+    
+    <div class="mb-3">
+      <label class="form-label">Author</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        [class.is-invalid]="author.invalid && author.touched"
+        formControlName="author">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        [class.is-invalid]="title.invalid && title.touched"
+        formControlName="title">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Content</label>
+      <textarea 
+        class="form-control" 
+        rows="3" 
+        [class.is-invalid]="content.invalid && content.touched"
+        formControlName="content"></textarea>
+    </div>
+
+    <button 
+      type="submit" 
+      class="btn btn-success" 
+      [disabled]="reviewForm.invalid">
+      Save Review
+    </button>
+  </form>
+</div>
