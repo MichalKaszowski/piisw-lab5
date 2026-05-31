@@ -27,7 +27,6 @@ export class BookListComponent {
     this.titleSearch.valueChanges.pipe(
       debounceTime(200),
       distinctUntilChanged()
-           
     ).subscribe((searchTerm) => {
       const query = searchTerm || '';
       this.bookService.searchBook(query).subscribe(books => this.books = books)

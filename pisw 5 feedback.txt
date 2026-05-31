@@ -1,0 +1,5 @@
+zad 5 angular 
+- Same spacje przechodzą walidację 
+- w przeglądarce jest sekcja network gdzie mogę sprawdzić zapytania bez clg 
+Z tego wiem, że wysyłają się zapytania z jednym znakiem, a powinno być z dwomas
+ 
